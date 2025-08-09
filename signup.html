@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - LegalPro Law Firm</title>
+  <meta name="description" content="Create your client account to access LegalPro Law Firm's secure client portal.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .signup-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-gray) 100%);
+      padding: 6rem 1rem 2rem;
+      position: relative;
+    }
+    
+    .signup-card {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .signup-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .signup-header h1 {
+      color: var(--primary-navy);
+      margin-bottom: 0.5rem;
+    }
+    
+    .signup-header p {
+      color: var(--text-light);
+      margin: 0;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-sizing: border-box;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary-gold);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .signup-container {
+        padding: 5rem 1rem 2rem;
+        min-height: calc(100vh - 80px);
+      }
+      
+      .signup-card {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+        margin: 1rem 0;
+      }
+      
+      .signup-header h1 {
+        font-size: 1.75rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .signup-container {
+        padding: 4.5rem 0.75rem 1.5rem;
+      }
+      
+      .signup-card {
+        padding: 1.5rem 1rem;
+        border-radius: 8px;
+      }
+      
+      .form-control {
+        padding: 0.625rem 0.75rem;
+        font-size: 0.9rem;
+      }
+      
+      .signup-header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .signup-header p {
+        font-size: 0.875rem;
+      }
+    }
+    
+    .password-requirements {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+      margin-top: 0.25rem;
+    }
+    
+    .checkbox-group label {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+    
+    .checkbox-group a {
+      color: var(--primary-gold);
+      text-decoration: none;
+    }
+    
+    .checkbox-group a:hover {
+      text-decoration: underline;
+    }
+    
+    .success-message {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">LegalPro</a>
+        
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          ☰
+        </button>
+        
+        <ul class="navbar-nav" id="navbar-nav">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Home</a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html" class="dropdown-link">Home 1</a></li>
+              <li><a href="index2.html" class="dropdown-link">Home 2</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="team.html" class="nav-link">Team</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Dashboard</a>
+            <ul class="dropdown-menu">
+              <li><a href="admin-dashboard.html" class="dropdown-link">Admin Dashboard</a></li>
+              <li><a href="user-dashboard.html" class="dropdown-link">User Dashboard</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link active">Sign Up</a></li>
+          <li>
+            <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.44 4 16.08 4 12C4 11.38 4.08 10.79 4.21 10.21L9 15V16C9 17.1 9.9 18 11 18V19.93ZM17.9 17.39C17.64 16.58 16.9 16 16 16H15V13C15 12.45 14.55 12 14 12H8V10H10C10.55 10 11 9.55 11 9V7H13C14.1 7 15 6.1 15 5V4.59C17.93 5.78 20 8.65 20 12C20 14.08 19.2 15.97 17.9 17.39Z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="signup-container">
+    <div class="signup-card fade-in">
+      <div class="signup-header">
+        <h1>Create Your Account</h1>
+        <p>Join LegalPro to access our secure client portal</p>
+      </div>
+      
+      <div class="success-message" id="success-message">
+        <strong>Success!</strong> Your account has been created. Please check your email to verify your account.
+      </div>
+      
+      <form class="signup-form" id="signup-form" onsubmit="handleSignup(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name" class="form-label">First Name</label>
+            <input type="text" id="first-name" name="firstName" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="last-name" class="form-label">Last Name</label>
+            <input type="text" id="last-name" name="lastName" class="form-control" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="date-of-birth" class="form-label">Date of Birth</label>
+            <input type="date" id="date-of-birth" name="dateOfBirth" class="form-control" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-control" required minlength="8">
+          <div class="password-requirements">
+            Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirm-password" class="form-label">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirmPassword" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="legal-matter" class="form-label">Type of Legal Matter (Optional)</label>
+          <select id="legal-matter" name="legalMatter" class="form-control">
+            <option value="">Please select...</option>
+            <option value="corporate">Corporate Law</option>
+            <option value="family">Family Law</option>
+            <option value="criminal">Criminal Defense</option>
+            <option value="personal-injury">Personal Injury</option>
+            <option value="employment">Employment Law</option>
+            <option value="real-estate">Real Estate</option>
+            <option value="tax">Tax Law</option>
+            <option value="estate-planning">Estate Planning</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">
+            I agree to the <a href="#" onclick="showTerms()">Terms of Service</a> and <a href="#" onclick="showPrivacy()">Privacy Policy</a>
+          </label>
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="newsletter" name="newsletter">
+          <label for="newsletter">
+            I would like to receive legal updates and newsletters from LegalPro
+          </label>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+        
+        <div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+          <p style="margin: 0; color: var(--text-light); font-size: 0.875rem;">Already have an account?</p>
+          <a href="login.html" style="color: var(--primary-gold); text-decoration: none; font-weight: 600;">Sign In</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function handleSignup(event) {
+      event.preventDefault();
+      
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      
+      if (password !== confirmPassword) {
+        alert('Passwords do not match. Please try again.');
+        return;
+      }
+      
+      // Validate password strength
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!passwordRegex.test(password)) {
+        alert('Password must meet the requirements: at least 8 characters, including uppercase, lowercase, number, and special character.');
+        return;
+      }
+      
+      // Show success message
+      document.getElementById('success-message').style.display = 'block';
+      document.getElementById('signup-form').style.display = 'none';
+      
+      // In a real application, you would send the form data to your server
+      console.log('Account creation successful!');
+    }
+    
+    function showTerms() {
+      alert('Terms of Service would be displayed here in a real application.');
+    }
+    
+    function showPrivacy() {
+      alert('Privacy Policy would be displayed here in a real application.');
+    }
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>

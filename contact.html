@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - LegalPro Law Firm</title>
+  <meta name="description" content="Contact our experienced legal team. Schedule a consultation or get in touch for professional legal advice and representation.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">LegalPro</a>
+        
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          ☰
+        </button>
+        
+        <ul class="navbar-nav" id="navbar-nav">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Home</a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html" class="dropdown-link">Home 1</a></li>
+              <li><a href="index2.html" class="dropdown-link">Home 2</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="team.html" class="nav-link">Team</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Dashboard</a>
+            <ul class="dropdown-menu">
+              <li><a href="admin-dashboard.html" class="dropdown-link">Admin Dashboard</a></li>
+              <li><a href="user-dashboard.html" class="dropdown-link">User Dashboard</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+          <li>
+            <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.44 4 16.08 4 12C4 11.38 4.08 10.79 4.21 10.21L9 15V16C9 17.1 9.9 18 11 18V19.93ZM17.9 17.39C17.64 16.58 16.9 16 16 16H15V13C15 12.45 14.55 12 14 12H8V10H10C10.55 10 11 9.55 11 9V7H13C14.1 7 15 6.1 15 5V4.59C17.93 5.78 20 8.65 20 12C20 14.08 19.2 15.97 17.9 17.39Z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <h1>Contact Our Legal Team</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-icon">📍</div>
+          <h3>Our Location</h3>
+          <p>123 Legal Street<br>Suite 456<br>City, State 12345</p>
+        </div>
+        
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-icon">📞</div>
+          <h3>Call Us</h3>
+          <p><a href="tel:555-123-4567" style="text-decoration: none; color: inherit;">(555) 123-4567</a><br>
+          <a href="tel:555-123-4568" style="text-decoration: none; color: inherit;">(555) 123-4568</a><br>
+          Fax: (555) 123-4569</p>
+        </div>
+        
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-icon">📧</div>
+          <h3>Email Us</h3>
+          <p><a href="mailto:info@legalpro.com" style="text-decoration: none; color: inherit;">info@legalpro.com</a><br>
+          <a href="mailto:consultation@legalpro.com" style="text-decoration: none; color: inherit;">consultation@legalpro.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form and Map -->
+  <section class="section" style="background-color: var(--light-gray);">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="slide-in-left">
+          <h2>Get in Touch</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          
+          <form class="contact-form" style="margin-top: 2rem;">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name *</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address *</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="service" class="form-label">Legal Service Needed</label>
+              <select id="service" name="service" class="form-control">
+                <option value="">Select a service...</option>
+                <option value="corporate">Corporate Law</option>
+                <option value="family">Family Law</option>
+                <option value="criminal">Criminal Defense</option>
+                <option value="realestate">Real Estate Law</option>
+                <option value="employment">Employment Law</option>
+                <option value="personal-injury">Personal Injury</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message *</label>
+              <textarea id="message" name="message" class="form-control" rows="5" required placeholder="Please describe your legal matter..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="slide-in-right">
+          <h2>Find Us</h2>
+          <div style="margin-bottom: 2rem;">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          
+          <!-- Map Placeholder -->
+          <div style="width: 100%; height: 300px; background-color: var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; color: var(--text-light);">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2412648718453!2d-73.98656668459395!3d40.75896397932881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1234567890123" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0; border-radius: 8px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Office Location Map">
+            </iframe>
+          </div>
+          
+          <div class="card">
+            <h3>Office Hours</h3>
+            <p style="margin: 0;">
+              <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+              <strong>Saturday:</strong> 10:00 AM - 2:00 PM<br>
+              <strong>Sunday:</strong> Closed<br>
+              <strong>Emergency:</strong> 24/7 availability
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Our Practice Areas</h2>
+        <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. We handle a wide range of legal matters.</p>
+      </div>
+      
+      <div class="grid grid-4">
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-icon">🏢</div>
+          <h4>Corporate Law</h4>
+          <a href="services.html" class="btn btn-secondary" style="margin-top: 1rem;">Learn More</a>
+        </div>
+        
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-icon">👨‍👩‍👧‍👦</div>
+          <h4>Family Law</h4>
+          <a href="services.html" class="btn btn-secondary" style="margin-top: 1rem;">Learn More</a>
+        </div>
+        
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-icon">🛡️</div>
+          <h4>Criminal Defense</h4>
+          <a href="services.html" class="btn btn-secondary" style="margin-top: 1rem;">Learn More</a>
+        </div>
+        
+        <div class="card fade-in" style="text-align: center;">
+          <div class="card-icon">🏠</div>
+          <h4>Real Estate</h4>
+          <a href="services.html" class="btn btn-secondary" style="margin-top: 1rem;">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Contact -->
+  <section class="section" style="background-color: var(--primary-navy); color: var(--white);">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2 style="color: var(--white);">Need Immediate Legal Assistance?</h2>
+        <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. We offer 24/7 emergency legal services.</p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:555-123-4567" class="btn btn-primary">Call Emergency Line</a>
+          <a href="mailto:emergency@legalpro.com" class="btn btn-outline">Send Emergency Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>LegalPro</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="about.html">About Us</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="team.html">Our Team</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Legal Services</h3>
+          <p><a href="services.html">Corporate Law</a></p>
+          <p><a href="services.html">Family Law</a></p>
+          <p><a href="services.html">Criminal Defense</a></p>
+          <p><a href="services.html">Real Estate</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>📧 info@legalpro.com</p>
+          <p>📞 (555) 123-4567</p>
+          <p>📍 123 Legal Street, City, State 12345</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 LegalPro Law Firm. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

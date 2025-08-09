@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - LegalPro Law Firm</title>
+  <meta name="description" content="Administrative dashboard for LegalPro Law Firm. Manage cases, clients, and firm operations.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">LegalPro Admin</a>
+        
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          ☰
+        </button>
+        
+        <ul class="navbar-nav" id="navbar-nav">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Home</a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html" class="dropdown-link">Home 1</a></li>
+              <li><a href="index2.html" class="dropdown-link">Home 2</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="team.html" class="nav-link">Team</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Dashboard</a>
+            <ul class="dropdown-menu">
+              <li><a href="admin-dashboard.html" class="dropdown-link">Admin Dashboard</a></li>
+              <li><a href="user-dashboard.html" class="dropdown-link">User Dashboard</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+          <li>
+            <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.44 4 16.08 4 12C4 11.38 4.08 10.79 4.21 10.21L9 15V16C9 17.1 9.9 18 11 18V19.93ZM17.9 17.39C17.64 16.58 16.9 16 16 16H15V13C15 12.45 14.55 12 14 12H8V10H10C10.55 10 11 9.55 11 9V7H13C14.1 7 15 6.1 15 5V4.59C17.93 5.78 20 8.65 20 12C20 14.08 19.2 15.97 17.9 17.39Z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="dashboard">
+    <div class="container">
+      <!-- Dashboard Header -->
+      <div class="dashboard-header">
+        <div class="fade-in">
+          <h1>Admin Dashboard</h1>
+          <p>Welcome back, Admin. Here's your firm overview for today.</p>
+        </div>
+      </div>
+
+      <!-- Dashboard Navigation -->
+      <div class="dashboard-nav">
+        <div class="container">
+          <ul>
+            <li><a href="#" class="active">Overview</a></li>
+            <li><a href="#">Case Management</a></li>
+            <li><a href="#">Client Relations</a></li>
+            <li><a href="#">Financial Reports</a></li>
+            <li><a href="#">Staff Management</a></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Stats Widgets -->
+      <div class="dashboard-grid">
+        <div class="dashboard-widget fade-in">
+          <div class="widget-title">Active Cases</div>
+          <div class="widget-value">127</div>
+          <div class="widget-description">+12% from last month</div>
+        </div>
+        
+        <div class="dashboard-widget fade-in">
+          <div class="widget-title">Total Clients</div>
+          <div class="widget-value">1,045</div>
+          <div class="widget-description">+8% from last month</div>
+        </div>
+        
+        <div class="dashboard-widget fade-in">
+          <div class="widget-title">Monthly Revenue</div>
+          <div class="widget-value">$234,567</div>
+          <div class="widget-description">+15% from last month</div>
+        </div>
+        
+      </div>
+
+      <!-- Main Dashboard Content -->
+      <div class="grid grid-2">
+        <!-- Recent Cases -->
+        <div class="card fade-in">
+          <h2>Recent Cases</h2>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border-color);">
+                  <th style="text-align: left; padding: 1rem 0.5rem; color: var(--primary-navy);">Case ID</th>
+                  <th style="text-align: left; padding: 1rem 0.5rem; color: var(--primary-navy);">Client</th>
+                  <th style="text-align: left; padding: 1rem 0.5rem; color: var(--primary-navy);">Type</th>
+                  <th style="text-align: left; padding: 1rem 0.5rem; color: var(--primary-navy);">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 0.75rem 0.5rem;">#2024-001</td>
+                  <td style="padding: 0.75rem 0.5rem;">John Smith</td>
+                  <td style="padding: 0.75rem 0.5rem;">Corporate</td>
+                  <td style="padding: 0.75rem 0.5rem;"><span style="background: #10b981; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">Active</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 0.75rem 0.5rem;">#2024-002</td>
+                  <td style="padding: 0.75rem 0.5rem;">Sarah Johnson</td>
+                  <td style="padding: 0.75rem 0.5rem;">Family</td>
+                  <td style="padding: 0.75rem 0.5rem;"><span style="background: #f59e0b; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">Pending</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 0.75rem 0.5rem;">#2024-003</td>
+                  <td style="padding: 0.75rem 0.5rem;">Mike Davis</td>
+                  <td style="padding: 0.75rem 0.5rem;">Criminal</td>
+                  <td style="padding: 0.75rem 0.5rem;"><span style="background: #10b981; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">Active</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 0.75rem 0.5rem;">#2024-004</td>
+                  <td style="padding: 0.75rem 0.5rem;">Lisa Wilson</td>
+                  <td style="padding: 0.75rem 0.5rem;">Real Estate</td>
+                  <td style="padding: 0.75rem 0.5rem;"><span style="background: #6b7280; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">Closed</span></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 0.5rem;">#2024-005</td>
+                  <td style="padding: 0.75rem 0.5rem;">Robert Brown</td>
+                  <td style="padding: 0.75rem 0.5rem;">Employment</td>
+                  <td style="padding: 0.75rem 0.5rem;"><span style="background: #ef4444; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">Urgent</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <a href="#" class="btn btn-secondary">View All Cases</a>
+          </div>
+        </div>
+
+        <!-- Revenue Chart -->
+        <div class="card fade-in">
+          <h2>Monthly Revenue Trend</h2>
+          <div class="chart-placeholder" style="overflow: hidden;height: 300px; background: var(--light-gray); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-light); margin: 1rem 0;">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 0.875rem; color: var(--text-light);">This Month</div>
+              <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-gold);">$234,567</div>
+            </div>
+            <div>
+              <div style="font-size: 0.875rem; color: var(--text-light);">Last Month</div>
+              <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-light);">$203,421</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Dashboard Sections -->
+      <div class="grid grid-3" style="margin-top: 2rem;">
+        <!-- Upcoming Appointments -->
+        <div class="card fade-in">
+          <h3>Today's Schedule</h3>
+          <div style="margin-top: 1rem;">
+            <div style="padding: 1rem 0; border-bottom: 1px solid var(--border-color);">
+              <div style="font-weight: 600;">9:00 AM - Client Meeting</div>
+              <div style="color: var(--text-light); font-size: 0.875rem;">John Smith - Corporate Law</div>
+            </div>
+            <div style="padding: 1rem 0; border-bottom: 1px solid var(--border-color);">
+              <div style="font-weight: 600;">11:30 AM - Court Hearing</div>
+              <div style="color: var(--text-light); font-size: 0.875rem;">Case #2024-003 - Criminal Defense</div>
+            </div>
+            <div style="padding: 1rem 0; border-bottom: 1px solid var(--border-color);">
+              <div style="font-weight: 600;">2:00 PM - Team Meeting</div>
+              <div style="color: var(--text-light); font-size: 0.875rem;">Weekly case review</div>
+            </div>
+            <div style="padding: 1rem 0;">
+              <div style="font-weight: 600;">4:30 PM - New Client Consultation</div>
+              <div style="color: var(--text-light); font-size: 0.875rem;">Sarah Davis - Family Law</div>
+            </div>
+          </div>
+          <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">View Full Calendar</a>
+        </div>
+
+        <!-- Staff Status -->
+        <div class="card fade-in">
+          <h3>Staff Overview</h3>
+          <div style="margin-top: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
+              <div>
+                <div style="font-weight: 600;">Senior Partners</div>
+                <div style="color: var(--text-light); font-size: 0.875rem;">Available</div>
+              </div>
+              <div style="background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.875rem;">2/2</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
+              <div>
+                <div style="font-weight: 600;">Associates</div>
+                <div style="color: var(--text-light); font-size: 0.875rem;">In Office</div>
+              </div>
+              <div style="background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.875rem;">5/6</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
+              <div>
+                <div style="font-weight: 600;">Support Staff</div>
+                <div style="color: var(--text-light); font-size: 0.875rem;">Available</div>
+              </div>
+              <div style="background: #f59e0b; color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.875rem;">3/4</div>
+            </div>
+          </div>
+          <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Manage Staff</a>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card fade-in">
+          <h3>Quick Actions</h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+            <button class="btn btn-primary">New Case</button>
+            <button class="btn btn-secondary">Add Client</button>
+            <button class="btn btn-secondary">Schedule Meeting</button>
+            <button class="btn btn-secondary">Generate Report</button>
+            <button class="btn btn-secondary">Send Invoice</button>
+            <button class="btn btn-secondary">View Calendar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="card fade-in" style="margin-top: 2rem;">
+        <h2>Recent Activity</h2>
+        <div style="margin-top: 1rem;">
+          <div style="padding: 1rem 0; border-bottom: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: between; align-items: center;">
+              <div>
+                <div style="font-weight: 600;">Case #2024-001 updated by John Anderson</div>
+                <div style="color: var(--text-light); font-size: 0.875rem;">Corporate merger documents reviewed and approved - 2 hours ago</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 1rem 0; border-bottom: 1px solid var(--border-color);">
+            <div>
+              <div style="font-weight: 600;">New client consultation scheduled</div>
+              <div style="color: var(--text-light); font-size: 0.875rem;">Sarah Davis - Family law consultation for Thursday 2:00 PM - 3 hours ago</div>
+            </div>
+          </div>
+          <div style="padding: 1rem 0; border-bottom: 1px solid var(--border-color);">
+            <div>
+              <div style="font-weight: 600;">Invoice #INV-2024-045 sent</div>
+              <div style="color: var(--text-light); font-size: 0.875rem;">$15,000 invoice sent to Wilson Corporation - 4 hours ago</div>
+            </div>
+          </div>
+          <div style="padding: 1rem 0;">
+            <div>
+              <div style="font-weight: 600;">Court date confirmed</div>
+              <div style="color: var(--text-light); font-size: 0.875rem;">Case #2024-003 court hearing confirmed for January 25th at 10:00 AM - 5 hours ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

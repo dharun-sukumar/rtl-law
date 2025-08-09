@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Legal Services - Law Firm</title>
+  <meta name="description" content="Professional legal services with experienced attorneys. We provide comprehensive legal solutions for individuals and businesses.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Hero Background Image */
+    .hero-bg {
+      background: linear-gradient(
+        135deg, 
+        rgba(30, 58, 138, 0.9) 0%, 
+        rgba(55, 65, 81, 0.8) 100%
+      ),
+      url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    /* Dropdown Menu Styles */
+    .nav-item {
+      position: relative;
+    }
+    
+    .dropdown-toggle::after {
+      content: ' ▼';
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      min-width: 160px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      list-style: none;
+      padding: 0.5rem 0;
+      margin: 0;
+    }
+    
+    .nav-item:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-link {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    
+    .dropdown-link:hover {
+      background: var(--light-gray);
+      color: var(--primary-gold);
+    }
+    
+    /* Mobile dropdown adjustments */
+    @media (max-width: 768px) {
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding-left: 1rem;
+      }
+      
+      .dropdown-toggle::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">LegalPro</a>
+        
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          ☰
+        </button>
+        
+        <ul class="navbar-nav" id="navbar-nav">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Home</a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html" class="dropdown-link">Home 1</a></li>
+              <li><a href="index2.html" class="dropdown-link">Home 2</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="team.html" class="nav-link">Team</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Dashboard</a>
+            <ul class="dropdown-menu">
+              <li><a href="admin-dashboard.html" class="dropdown-link">Admin Dashboard</a></li>
+              <li><a href="user-dashboard.html" class="dropdown-link">User Dashboard</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+          <li>
+            <button id="rtl-toggle" class="rtl-toggle" title="Toggle RTL">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.44 4 16.08 4 12C4 11.38 4.08 10.79 4.21 10.21L9 15V16C9 17.1 9.9 18 11 18V19.93ZM17.9 17.39C17.64 16.58 16.9 16 16 16H15V13C15 12.45 14.55 12 14 12H8V10H10C10.55 10 11 9.55 11 9V7H13C14.1 7 15 6.1 15 5V4.59C17.93 5.78 20 8.65 20 12C20 14.08 19.2 15.97 17.9 17.39Z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Distinct) -->
+  <section class="hero hero-bg" style="min-height: 100vh; display: flex; align-items: center;">
+    <div class="container">
+      <div class="hero-content fade-in" style="max-width: 600px;">
+        <h1>Innovative Legal Solutions for Modern Challenges</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div style="margin-top: 2rem;">
+          <a href="about.html" class="btn btn-primary">Discover Our Approach</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unique Feature Section -->
+  <section class="section" style="background: var(--primary-navy); color: var(--white);">
+    <div class="container">
+      <div class="section-title slide-in-left">
+        <h2>Why LawXpert is Different</h2>
+        <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card fade-in" style="background: var(--white); color: var(--primary-navy);">
+          <h3>Virtual Consultations</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="card fade-in" style="background: var(--white); color: var(--primary-navy);">
+          <h3>Transparent Pricing</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats Section (Different layout) -->
+  <section class="section" style="background: var(--light-gray);">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Our Impact in Numbers</h2>
+        <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do </p>
+      </div>
+      <div class="grid grid-2">
+        <div class="stats-card fade-in">
+          <div class="stats-number">300+</div>
+          <div class="stats-label">Virtual Consults</div>
+        </div>
+        <div class="stats-card fade-in">
+          <div class="stats-number">4.9/5</div>
+          <div class="stats-label">Client Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview (Distinct) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title slide-in-right">
+        <h2>Featured Services</h2>
+        <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing </p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card fade-in">
+          <h3>Startup Legal Packages</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="services.html" class="btn btn-secondary">See Packages</a>
+        </div>
+        <div class="card fade-in">
+          <h3>Online Dispute Resolution</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="services.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Stories (Distinct) -->
+  <section class="section" style="background: var(--secondary-gray); color: var(--white);">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Client Success Stories</h2>
+        <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+      </div>
+      <div class="grid grid-2">
+        <div class="testimonial-card fade-in" style="background: var(--white); color: var(--primary-navy);">
+          <div class="testimonial-content">
+            <div class="quote-icon">❝</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="testimonial-author">
+              <strong>Priya S.</strong>
+              <span>Entrepreneur</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in" style="background: var(--white); color: var(--primary-navy);">
+          <div class="testimonial-content">
+            <div class="quote-icon">❝</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="testimonial-author">
+              <strong>Arjun M.</strong>
+              <span>Startup Founder</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas (Distinct) -->
+  <section class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="section-title slide-in-left">
+        <h2>Practice Areas</h2>
+        <p class="section-subtitle">A modern law firm for modern legal needs.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="practice-area-card fade-in">
+          <div class="practice-icon">⚖️</div>
+          <div class="practice-content">
+            <h4>Intellectual Property</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+        <div class="practice-area-card fade-in">
+          <div class="practice-icon">🏢</div>
+          <div class="practice-content">
+            <h4>Business Law</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+        <div class="practice-area-card fade-in">
+          <div class="practice-icon">💻</div>
+          <div class="practice-content">
+            <h4>Cyber Law</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recognition (Distinct) -->
+  <section class="section" style="background: var(--primary-navy); color: var(--white);">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Recognition</h2>
+        <p class="section-subtitle">Proudly recognized for innovation and client service.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="award-card fade-in">
+          <div class="award-icon">🏆</div>
+          <h4>LegalTech Innovator 2024</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="award-card fade-in">
+          <div class="award-icon">🌟</div>
+          <h4>Top Client Service</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section (Distinct) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Ready for a Modern Legal Experience?</h2>
+        <p class="section-subtitle">Book a virtual consultation and see how LawXpert can help you today.</p>
+        <div style="margin-top: 2rem;">
+          <a href="contact.html" class="btn btn-primary">Book Virtual Consult</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>LegalPro</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="about.html">About Us</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="team.html">Our Team</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Legal Services</h3>
+          <p><a href="services.html">Corporate Law</a></p>
+          <p><a href="services.html">Family Law</a></p>
+          <p><a href="services.html">Criminal Defense</a></p>
+          <p><a href="services.html">Real Estate</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; vertical-align: middle;">
+              <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+            </svg>
+            info@legalpro.com
+          </p>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; vertical-align: middle;">
+              <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
+            </svg>
+            (555) 123-4567
+          </p>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; vertical-align: middle;">
+              <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5S14.5 7.62 14.5 9S13.38 11.5 12 11.5Z" fill="currentColor"/>
+            </svg>
+            123 Legal Street, City, State 12345
+          </p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 LegalPro Law Firm. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
