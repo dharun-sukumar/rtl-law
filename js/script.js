@@ -36,21 +36,44 @@ function initMobileMenu() {
   if (mobileToggle && navbarNav) {
     mobileToggle.addEventListener('click', function() {
       navbarNav.classList.toggle('active');
-      
       // Update aria-expanded for accessibility
       const isExpanded = navbarNav.classList.contains('active');
       mobileToggle.setAttribute('aria-expanded', isExpanded);
     });
-    
-    // Close mobile menu when clicking on nav links
-    const navLinks = navbarNav.querySelectorAll('.nav-link');
+
+  // Dropdowns are always visible on mobile; no tap-to-reveal needed
+
+    // Close mobile menu when clicking on nav links (not dropdown parent)
+    const navLinks = navbarNav.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-link');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navbarNav.classList.remove('active');
         mobileToggle.setAttribute('aria-expanded', 'false');
+        // Also close all open dropdowns
+        const openDropdowns = navbarNav.querySelectorAll('.nav-item.open');
+        openDropdowns.forEach(item => item.classList.remove('open'));
       });
     });
   }
+// Dropdown hover for desktop
+function initDropdownHover() {
+  const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+  dropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    if (!toggle) return;
+    // Desktop hover
+    dropdown.addEventListener('mouseenter', function() {
+      if (window.innerWidth > 768) {
+        dropdown.classList.add('open');
+      }
+    });
+    dropdown.addEventListener('mouseleave', function() {
+      if (window.innerWidth > 768) {
+        dropdown.classList.remove('open');
+      }
+    });
+  });
+}
 }
 
 // Close mobile menu when LTR button is clicked
@@ -304,6 +327,7 @@ function initDashboardCharts() {
 document.addEventListener('DOMContentLoaded', function() {
   initRTLToggle();
   initMobileMenu();
+  initDropdownHover();
   closeMobileMenuOnLTRToggle();
   setActiveNavLink();
   initFormValidation();
