@@ -295,32 +295,379 @@ function initCountdownTimer() {
 
 // Dashboard Chart Simulation (Simple)
 function initDashboardCharts() {
-  const chartElements = document.querySelectorAll('.chart-placeholder');
+  // Register the zoom plugin if available
+  if (window.ChartZoom) {
+    Chart.register(window.ChartZoom);
+  }
   
-  chartElements.forEach(element => {
-    const canvas = document.createElement('canvas');
-    canvas.width = element.offsetWidth;
-    canvas.height = 200;
+  console.log('Initializing dashboard charts...');
+  
+  // Revenue Chart
+  const revenueChartElement = document.getElementById('revenueChart');
+  
+  if (revenueChartElement) {
+    console.log('Revenue chart element found, initializing...');
+    // Ensure proper canvas sizing
+    const container = revenueChartElement.parentElement;
+    revenueChartElement.style.width = '100%';
+    revenueChartElement.style.height = '100%';
     
-    const ctx = canvas.getContext('2d');
+    // Destroy existing chart if it exists
+    const existingChart = Chart.getChart(revenueChartElement);
+    if (existingChart) {
+      existingChart.destroy();
+    }
     
-    // Simple bar chart simulation
-    const data = [65, 59, 80, 81, 56, 55, 40];
-    const max = Math.max(...data);
-    const barWidth = canvas.width / data.length;
+    const ctx = revenueChartElement.getContext('2d');
     
-    ctx.fillStyle = '#f59e0b';
+    // Monthly revenue data for the past 12 months
+    const monthlyRevenue = [
+      { month: 'Feb', revenue: 185000, cases: 45 },
+      { month: 'Mar', revenue: 195000, cases: 52 },
+      { month: 'Apr', revenue: 210000, cases: 48 },
+      { month: 'May', revenue: 198000, cases: 55 },
+      { month: 'Jun', revenue: 225000, cases: 58 },
+      { month: 'Jul', revenue: 240000, cases: 62 },
+      { month: 'Aug', revenue: 220000, cases: 57 },
+      { month: 'Sep', revenue: 235000, cases: 61 },
+      { month: 'Oct', revenue: 245000, cases: 65 },
+      { month: 'Nov', revenue: 255000, cases: 68 },
+      { month: 'Dec', revenue: 203421, cases: 59 },
+      { month: 'Jan', revenue: 234567, cases: 63 }
+    ];
     
-    data.forEach((value, index) => {
-      const barHeight = (value / max) * (canvas.height - 20);
-      const x = index * barWidth + 10;
-      const y = canvas.height - barHeight - 10;
-      
-      ctx.fillRect(x, y, barWidth - 20, barHeight);
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: monthlyRevenue.map(item => item.month),
+        datasets: [{
+          label: 'Monthly Revenue ($)',
+          data: monthlyRevenue.map(item => item.revenue),
+          borderColor: '#f59e0b',
+          backgroundColor: 'rgba(245, 158, 11, 0.1)',
+          borderWidth: 3,
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#f59e0b',
+          pointBorderColor: '#ffffff',
+          pointBorderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          pointHoverBackgroundColor: '#f59e0b',
+          pointHoverBorderColor: '#ffffff'
+        }, {
+          label: 'Cases Completed',
+          data: monthlyRevenue.map(item => item.cases * 1000), // Multiply for scale
+          borderColor: '#1e3a8a',
+          backgroundColor: 'rgba(30, 58, 138, 0.1)',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.4,
+          pointBackgroundColor: '#1e3a8a',
+          pointBorderColor: '#ffffff',
+          pointBorderWidth: 2,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: '#1e3a8a',
+          pointHoverBorderColor: '#ffffff',
+          yAxisID: 'y1'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1000,
+          easing: 'easeInOutQuart'
+        },
+        interaction: {
+          mode: 'index',
+          intersect: false,
+        },
+        plugins: {
+          zoom: window.ChartZoom ? {
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'x',
+            },
+            pan: {
+              enabled: true,
+              mode: 'x',
+            }
+          } : undefined,
+          title: {
+            display: false
+          },
+          legend: {
+            display: true,
+            position: 'top',
+            labels: {
+              usePointStyle: true,
+              font: {
+                size: 12
+              },
+              color: '#374151'
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            titleColor: '#ffffff',
+            bodyColor: '#ffffff',
+            borderColor: '#f59e0b',
+            borderWidth: 1,
+            cornerRadius: 8,
+            displayColors: true,
+            callbacks: {
+              label: function(context) {
+                if (context.datasetIndex === 0) {
+                  return 'Revenue: $' + context.parsed.y.toLocaleString();
+                } else {
+                  return 'Cases: ' + (context.parsed.y / 1000).toFixed(0);
+                }
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              color: 'rgba(0, 0, 0, 0.1)',
+              drawBorder: false
+            },
+            ticks: {
+              color: '#6b7280',
+              font: {
+                size: 11
+              }
+            }
+          },
+          y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+            grid: {
+              color: 'rgba(0, 0, 0, 0.1)',
+              drawBorder: false
+            },
+            ticks: {
+              color: '#6b7280',
+              font: {
+                size: 11
+              },
+              callback: function(value) {
+                return '$' + (value / 1000).toFixed(0) + 'K';
+              }
+            }
+          },
+          y1: {
+            type: 'linear',
+            display: true,
+            position: 'right',
+            grid: {
+              drawOnChartArea: false,
+            },
+            ticks: {
+              color: '#6b7280',
+              font: {
+                size: 11
+              },
+              callback: function(value) {
+                return (value / 1000).toFixed(0);
+              }
+            }
+          }
+        }
+      }
     });
     
-    element.appendChild(canvas);
-  });
+    // Add double-click to reset zoom
+    revenueChartElement.addEventListener('dblclick', () => {
+      if (chart.resetZoom) {
+        chart.resetZoom();
+      }
+    });
+    
+    console.log('Revenue chart initialized successfully');
+  } else {
+    console.log('Revenue chart element not found');
+  }
+  
+  // Case Types Distribution Chart (Doughnut)
+  const caseTypesChartElement = document.getElementById('caseTypesChart');
+  
+  if (caseTypesChartElement) {
+    // Ensure proper canvas sizing
+    caseTypesChartElement.style.width = '100%';
+    caseTypesChartElement.style.height = '100%';
+    
+    // Destroy existing chart if it exists
+    const existingChart = Chart.getChart(caseTypesChartElement);
+    if (existingChart) {
+      existingChart.destroy();
+    }
+    
+    const ctx = caseTypesChartElement.getContext('2d');
+    
+    const caseTypesChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Corporate Law', 'Family Law', 'Criminal Defense', 'Real Estate', 'Employment Law', 'Personal Injury'],
+        datasets: [{
+          data: [35, 22, 18, 12, 8, 5],
+          backgroundColor: [
+            '#1e3a8a',
+            '#f59e0b',
+            '#dc2626',
+            '#059669',
+            '#7c3aed',
+            '#ea580c'
+          ],
+          borderColor: '#ffffff',
+          borderWidth: 2,
+          hoverOffset: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          animateRotate: true,
+          duration: 1200,
+          easing: 'easeInOutQuart'
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              font: {
+                size: 11
+              },
+              color: '#374151',
+              padding: 15,
+              usePointStyle: true
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            titleColor: '#ffffff',
+            bodyColor: '#ffffff',
+            borderColor: '#f59e0b',
+            borderWidth: 1,
+            cornerRadius: 8,
+            callbacks: {
+              label: function(context) {
+                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                const percentage = ((context.parsed / total) * 100).toFixed(1);
+                return context.label + ': ' + context.parsed + '% (' + percentage + '%)';
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+  
+  // Case Status Overview Chart (Bar)
+  const caseStatusChartElement = document.getElementById('caseStatusChart');
+  
+  if (caseStatusChartElement) {
+    // Ensure proper canvas sizing
+    caseStatusChartElement.style.width = '100%';
+    caseStatusChartElement.style.height = '100%';
+    
+    // Destroy existing chart if it exists
+    const existingChart = Chart.getChart(caseStatusChartElement);
+    if (existingChart) {
+      existingChart.destroy();
+    }
+    
+    const ctx = caseStatusChartElement.getContext('2d');
+    
+    const caseStatusChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Active Cases', 'Pending Review', 'In Court', 'Closed This Month', 'Urgent Priority'],
+        datasets: [{
+          label: 'Number of Cases',
+          data: [87, 23, 15, 42, 8],
+          backgroundColor: [
+            '#10b981',
+            '#f59e0b',
+            '#3b82f6',
+            '#6b7280',
+            '#ef4444'
+          ],
+          borderColor: [
+            '#059669',
+            '#d97706',
+            '#2563eb',
+            '#4b5563',
+            '#dc2626'
+          ],
+          borderWidth: 1,
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1000,
+          easing: 'easeInOutQuart'
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            titleColor: '#ffffff',
+            bodyColor: '#ffffff',
+            borderColor: '#f59e0b',
+            borderWidth: 1,
+            cornerRadius: 8,
+            callbacks: {
+              label: function(context) {
+                return context.parsed.y + ' cases';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              color: '#6b7280',
+              font: {
+                size: 10
+              },
+              maxRotation: 45
+            }
+          },
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(0, 0, 0, 0.1)'
+            },
+            ticks: {
+              color: '#6b7280',
+              font: {
+                size: 11
+              },
+              stepSize: 10
+            }
+          }
+        }
+      }
+    });
+  }
 }
 
 // Initialize all functionality when DOM is loaded
@@ -335,7 +682,121 @@ document.addEventListener('DOMContentLoaded', function() {
   initScrollAnimations();
   initCountdownTimer();
   initDashboardCharts();
+  initImageSlider();
 });
+window.addEventListener('load', function() {
+  initDashboardCharts();
+  // Other initializations...
+});
+// Image Slider Functionality
+let currentSlideIndex = 0;
+let slideInterval;
+
+function initImageSlider() {
+  const slider = document.getElementById('whyChooseSlider');
+  if (!slider) return;
+  
+  // Start auto-slide
+  startAutoSlide();
+  
+  // Pause on hover
+  slider.addEventListener('mouseenter', stopAutoSlide);
+  slider.addEventListener('mouseleave', startAutoSlide);
+  
+  // Touch support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  slider.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoSlide();
+  });
+  
+  slider.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    startAutoSlide();
+  });
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        changeSlide(1); // Swipe left - next slide
+      } else {
+        changeSlide(-1); // Swipe right - previous slide
+      }
+    }
+  }
+}
+
+function changeSlide(direction) {
+  const sliderTrack = document.getElementById('sliderTrack');
+  const indicators = document.querySelectorAll('.indicator');
+  const slides = document.querySelectorAll('.slide');
+  
+  if (!sliderTrack || !indicators.length || !slides.length) return;
+  
+  // Remove active classes
+  slides[currentSlideIndex].classList.remove('active');
+  indicators[currentSlideIndex].classList.remove('active');
+  
+  // Calculate new slide index
+  currentSlideIndex += direction;
+  
+  if (currentSlideIndex >= slides.length) {
+    currentSlideIndex = 0;
+  } else if (currentSlideIndex < 0) {
+    currentSlideIndex = slides.length - 1;
+  }
+  
+  // Apply transform and active classes
+  const translateX = -currentSlideIndex * (100 / slides.length);
+  sliderTrack.style.transform = `translateX(${translateX}%)`;
+  
+  slides[currentSlideIndex].classList.add('active');
+  indicators[currentSlideIndex].classList.add('active');
+}
+
+function currentSlide(index) {
+  const sliderTrack = document.getElementById('sliderTrack');
+  const indicators = document.querySelectorAll('.indicator');
+  const slides = document.querySelectorAll('.slide');
+  
+  if (!sliderTrack || !indicators.length || !slides.length) return;
+  
+  // Remove active classes
+  slides[currentSlideIndex].classList.remove('active');
+  indicators[currentSlideIndex].classList.remove('active');
+  
+  // Set new index
+  currentSlideIndex = index - 1;
+  
+  // Apply transform and active classes
+  const translateX = -currentSlideIndex * (100 / slides.length);
+  sliderTrack.style.transform = `translateX(${translateX}%)`;
+  
+  slides[currentSlideIndex].classList.add('active');
+  indicators[currentSlideIndex].classList.add('active');
+  
+  // Restart auto-slide
+  stopAutoSlide();
+  startAutoSlide();
+}
+
+function startAutoSlide() {
+  slideInterval = setInterval(function() {
+    changeSlide(1);
+  }, 5000); // Change slide every 5 seconds
+}
+
+function stopAutoSlide() {
+  if (slideInterval) {
+    clearInterval(slideInterval);
+  }
+}
 
 // Handle window resize for responsive charts
 window.addEventListener('resize', function() {
@@ -360,5 +821,7 @@ function debounce(func, wait) {
 window.LawFirmTemplate = {
   showNotification,
   initCountdownTimer,
-  initDashboardCharts
+  initDashboardCharts,
+  changeSlide,
+  currentSlide
 };

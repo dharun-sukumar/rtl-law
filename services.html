@@ -285,28 +285,65 @@
       </div>
       
       <div style="max-width: 800px; margin: 0 auto;">
-        <div class="card fade-in" style="margin-bottom: 1rem;">
-          <h3>How much do your services cost?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        
-        <div class="card fade-in" style="margin-bottom: 1rem;">
-          <h3>How long does a typical case take?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        
-        <div class="card fade-in" style="margin-bottom: 1rem;">
-          <h3>Do you offer free consultations?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        
-        <div class="card fade-in">
-          <h3>What should I bring to my first appointment?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="faq-list" role="list">
+          <details class="faq-item" open>
+            <summary class="faq-question">How much do your services cost?</summary>
+            <div class="faq-answer">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How long does a typical case take?</summary>
+            <div class="faq-answer">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Do you offer free consultations?</summary>
+            <div class="faq-answer">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">What should I bring to my first appointment?</summary>
+            <div class="faq-answer">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </details>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Inline FAQ styles (kept local for quick preview) -->
+  <style>
+    .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item { background: var(--white); border-radius: 8px; padding: 0.75rem 1rem; box-shadow: 0 6px 18px rgba(30,58,138,0.06); }
+    .faq-item summary { cursor: pointer; list-style: none; font-weight: 700; outline: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .faq-answer { margin-top: 0.75rem; color: #334155; }
+    /* Optional: add a chevron indicator */
+    .faq-item[open] summary::after { content: "▲"; margin-left: 1rem; color: var(--primary-navy); }
+    .faq-item summary::after { content: "▼"; margin-left: 1rem; color: rgba(51,65,85,0.6); }
+  </style>
+
+  <!-- Small JS to enforce accordion behavior (only one open at a time) -->
+  <script>
+    (function(){
+      const faqList = document.querySelectorAll('.faq-list details');
+      faqList.forEach((detail) => {
+        detail.addEventListener('toggle', (e) => {
+          if (detail.open) {
+            faqList.forEach((d) => { if (d !== detail) d.removeAttribute('open'); });
+          }
+        });
+      });
+    })();
+  </script>
 
   <!-- CTA Section -->
   <section class="section">
@@ -371,7 +408,7 @@
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2024 LegalPro Law Firm. All rights reserved.</p>
+        <p>&copy; 2025 LegalPro Law Firm. All rights reserved.</p>
       </div>
     </div>
   </footer>

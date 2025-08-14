@@ -73,7 +73,57 @@
     <div class="container">
       <div class="section-title slide-in-left">
         <h2>Why Choose Our Firm?</h2>
-        <p class="section-subtitle">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe quibusdam commodi nostrum possimus exercitationem error </p>
+        <p class="section-subtitle">Discover what sets us apart through our comprehensive legal expertise and client-centered approach</p>
+      </div>
+      
+      <!-- Image Slider -->
+      <div class="image-slider-container fade-in" style="">
+        <div class="image-slider" id="whyChooseSlider">
+          <div class="slider-track" id="sliderTrack">
+            <div class="slide active">
+              <img src="https://www.legalsupportworld.com/wp-content/uploads/2018/11/Legal-services-blog.jpg" alt="Professional legal team" />
+              <div class="slide-overlay">
+                <h3>Expert Legal Team</h3>
+                <p>Experienced attorneys dedicated to your success</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="https://imageio.forbes.com/specials-images/imageserve/5f4184602487e149c4929221/You-are-talking-to-one-customer-at-a-time--giving-each-one-an-experience-that-is/960x0.jpg?format=jpg&width=960" alt="Legal consultation" />
+              <div class="slide-overlay">
+                <h3>Personalized Service</h3>
+                <p>Tailored legal solutions for every client</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern office space" />
+              <div class="slide-overlay">
+                <h3>Modern Facilities</h3>
+                <p>State-of-the-art office for client comfort</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slider Navigation -->
+          <div class="slider-nav">
+            <button class="nav-btn prev-btn" onclick="changeSlide(-1)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="nav-btn next-btn" onclick="changeSlide(1)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Slide Indicators -->
+          <div class="slider-indicators">
+            <button class="indicator active" onclick="currentSlide(1)"></button>
+            <button class="indicator" onclick="currentSlide(2)"></button>
+            <button class="indicator" onclick="currentSlide(3)"></button>
+          </div>
+        </div>
       </div>
       
       <div class="grid grid-3">
@@ -84,7 +134,7 @@
             </svg>
           </div>
           <h3>Expert Legal Counsel</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptate ex, totam labore expedita blanditiis officiis assumenda sunt culpa nisi fugit eligendi eaque hic sit odit asperiores maxime doloribus excepturi!</p>
+          <p>Our experienced attorneys bring decades of combined expertise across multiple practice areas, ensuring comprehensive legal guidance tailored to your unique situation and objectives.</p>
         </div>
         
         <div class="card fade-in">
@@ -94,7 +144,7 @@
             </svg>
           </div>
           <h3>Proven Track Record</h3>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, quod possimus doloremque dolor doloribus, eum dignissimos nesciunt atque quasi nihil nobis laboriosam voluptatem corrupti laborum iusto natus, ut deleniti earum.</p>
+          <p>With over 500 successful cases and a 98% success rate, our firm has consistently delivered exceptional results for clients across diverse legal challenges and complex litigation matters.</p>
         </div>
         
         <div class="card fade-in">
@@ -104,7 +154,7 @@
             </svg>
           </div>
           <h3>Client-Focused Approach</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, repudiandae pariatur. Voluptas laudantium provident hic earum repudiandae harum quam. Omnis facere quos vero possimus doloribus sed molestias neque cumque. Distinctio.</p>
+          <p>Every client receives personalized attention and dedicated support throughout their legal journey, with transparent communication and strategic guidance every step of the way.</p>
         </div>
       </div>
     </div>
@@ -188,8 +238,13 @@
             <div class="quote-icon">❝</div>
             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
             <div class="testimonial-author">
-              <strong>Sarah Johnson</strong>
-              <span>CEO, TechStart Inc.</span>
+              <div class="author-info">
+                <img class="author-avatar" src="https://i.pravatar.cc/128?img=32" alt="Sarah Johnson">
+                <div class="author-meta">
+                  <strong>Sarah Johnson</strong>
+                  <span>CEO, TechStart Inc.</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -197,10 +252,15 @@
         <div class="testimonial-card fade-in">
           <div class="testimonial-content">
             <div class="quote-icon">❝</div>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"</p>
             <div class="testimonial-author">
-              <strong>Michael Chen</strong>
-              <span>Small Business Owner</span>
+              <div class="author-info">
+                <img class="author-avatar" src="https://i.pravatar.cc/128?img=12" alt="Michael Chen">
+                <div class="author-meta">
+                  <strong>Michael Chen</strong>
+                  <span>Small Business Owner</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -210,8 +270,13 @@
             <div class="quote-icon">❝</div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
             <div class="testimonial-author">
-              <strong>David Rodriguez</strong>
-              <span>Construction Manager</span>
+              <div class="author-info">
+                <img class="author-avatar" src="https://i.pravatar.cc/128?img=47" alt="David Rodriguez">
+                <div class="author-meta">
+                  <strong>David Rodriguez</strong>
+                  <span>Construction Manager</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -383,7 +448,7 @@
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2024 LegalPro Law Firm. All rights reserved.</p>
+        <p>&copy; 2025 LegalPro Law Firm. All rights reserved.</p>
       </div>
     </div>
   </footer>
