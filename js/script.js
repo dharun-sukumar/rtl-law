@@ -10,18 +10,15 @@ function initRTLToggle() {
     const isRTL = localStorage.getItem('rtl-mode') === 'true';
     if (isRTL) {
       body.setAttribute('dir', 'rtl');
-      rtlToggle.textContent = 'LTR';
     }
     
     rtlToggle.addEventListener('click', function() {
       const currentDir = body.getAttribute('dir');
       if (currentDir === 'rtl') {
         body.removeAttribute('dir');
-        rtlToggle.textContent = 'RTL';
         localStorage.setItem('rtl-mode', 'false');
       } else {
         body.setAttribute('dir', 'rtl');
-        rtlToggle.textContent = 'LTR';
         localStorage.setItem('rtl-mode', 'true');
       }
     });

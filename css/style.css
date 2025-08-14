@@ -878,7 +878,7 @@ textarea.form-control {
   }
   
   .dropdown-menu {
-    position: static;
+    /* position: static;
     opacity: 1;
     visibility: visible;
     transform: none;
@@ -887,7 +887,7 @@ textarea.form-control {
     background: var(--light-gray);
     margin: 0.5rem 0 0 0.5rem;
     border-radius: 8px;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0; */
   }
 
   .dropdown-link {
@@ -1147,7 +1147,7 @@ button:focus,
   }
 
   .dropdown-menu {
-    position: static;
+    /* position: static;
     opacity: 1;
     visibility: visible;
     transform: none;
@@ -1156,7 +1156,7 @@ button:focus,
     background: var(--light-gray);
     margin-left: 1rem;
     margin-top: 0.5rem;
-    display: block;
+    display: block; */
   }
 
   .dropdown-toggle::after {
@@ -1164,7 +1164,7 @@ button:focus,
   }
 
   .nav-item {
-    width: 100%;
+    /* width: 100%; */
   }
 
   .nav-link {
