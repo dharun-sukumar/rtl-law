@@ -171,7 +171,7 @@ p {
   font-size: 1.2rem;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 58, 138, 0.2);
 }
 
 .mobile-menu-toggle:hover {
@@ -243,6 +243,19 @@ p {
 
 /* Hero Section */
 .hero {
+  background: url('https://t3.ftcdn.net/jpg/04/85/39/76/360_F_485397626_ydPEYshMKRIyY7HIH2jUCLu8nkC7X2KH.jpg') no-repeat center center;
+  color: var(--white);
+  padding: 8rem 0 4rem;
+  margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+  /* height: 100vh; */
+  object-fit: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero-bg {
   background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-gray) 100%);
   color: var(--white);
   padding: 8rem 0 4rem;
@@ -1147,24 +1160,33 @@ button:focus,
   }
 
   .dropdown-menu {
-    /* position: static;
+    position: static;
     opacity: 1;
     visibility: visible;
     transform: none;
     box-shadow: none;
     border: none;
-    background: var(--light-gray);
     margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 0.5rem;
-    display: block; */
+    display: block;
   }
 
-  .dropdown-toggle::after {
-    display: none;
+  .dropdown-toggle {
+    display: none !important;
   }
 
-  .nav-item {
-    /* width: 100%; */
+  .dropdown-menu {
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .dropdown-menu {
+    margin: 0 !important;
   }
 
   .nav-link {
@@ -1436,7 +1458,7 @@ button:focus,
   
   /* Ensure cards have enough space */
   .card {
-    min-height: 400px;
+    /* min-height: 400px; */
   }
 }
 
@@ -1469,7 +1491,7 @@ button:focus,
   /* Make cards more compact on mobile */
   .card {
     padding: 1rem;
-    min-height: 350px;
+    /* min-height: 350px; */
   }
   
   /* Adjust font sizes for mobile readability */
